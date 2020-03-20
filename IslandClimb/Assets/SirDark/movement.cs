@@ -92,4 +92,13 @@ public class movement : MonoBehaviour
             onWall = false;
         }
     }
+
+    public bool getOnWall ()
+    {
+        return onWall;
+    }
+    public bool getIsGrounded()
+    {
+        return isGrounded;
+    }
 }

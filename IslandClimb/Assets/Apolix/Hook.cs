@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
+    public LineRenderer line;
     MonoBehaviour[] scripts;
     DistanceJoint2D joint;
     GameObject movementScript;
@@ -19,6 +20,7 @@ public class Hook : MonoBehaviour
 
         joint = GetComponent<DistanceJoint2D> ();
         joint.enabled = false;
+        line.enabled = false;
     }
 
     void Update()
@@ -34,15 +36,26 @@ public class Hook : MonoBehaviour
             {
                 enableScipts(false);
                 joint.enabled = true;
+                joint.connectedAnchor = (hit.point / 10.0f) - new Vector2(hit.collider.transform.position.x / 10.0f, hit.collider.transform.position.y / 10.0f);
                 joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
                 joint.distance = Vector2.Distance(transform.position, hit.point);
+
+                line.enabled = true;
+                line.SetPosition(0, transform.position);
+                line.SetPosition(1, hit.point);
             }
+        }
+
+        if(Input.GetKey(KeyCode.E))
+        {
+            line.SetPosition(0, transform.position);
         }
 
         if (Input.GetKeyUp(KeyCode.E))
         {
             enableScipts(true);
             joint.enabled = false;
+            line.enabled = false;
         }
     }
 
