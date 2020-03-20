@@ -29,7 +29,14 @@ public class Hook : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
             {
                 joint.enabled = true;
+                joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
+                joint.distance = Vector2.Distance(transform.position, hit.point);
             }
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            joint.enabled = false;
         }
     }
 }
