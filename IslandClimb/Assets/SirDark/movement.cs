@@ -20,6 +20,10 @@ public class movement : MonoBehaviour
     
     private GameObject lastWall = null;
 
+    public string double_jump_unlock_tag = "double jump unlock";
+    bool double_jump_unlock = false;
+    bool double_jump = false;
+
     
 
     void Start()
@@ -28,7 +32,7 @@ public class movement : MonoBehaviour
     }
 
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Space) && (isGrounded || onWall)){
+        if(Input.GetKeyDown(KeyCode.Space) && (isGrounded || onWall || double_jump)){
             
             if(isGrounded){
                 body.velocity = new Vector2(0,1)* jumpSpeed;
@@ -39,9 +43,15 @@ public class movement : MonoBehaviour
                 body.velocity = new Vector2(0,1)* jumpSpeed;
                 onWall = false;
             }
+            else if(double_jump){
+                body.velocity = new Vector2(0,1)* jumpSpeed;
+                double_jump = false;
+            }
+            
 
         }
-        Debug.Log(onWall);
+        Debug.Log(isGrounded);
+
         
     }
     void FixedUpdate()
@@ -55,10 +65,23 @@ public class movement : MonoBehaviour
         if(other.gameObject.tag == groundtag){
             isGrounded = true;
             lastWall = null;
+            if(double_jump_unlock){
+                double_jump = true;
+            }
         }
         if(other.gameObject.tag == walltag && other.gameObject != lastWall){
             onWall = true;
             lastWall = other.gameObject;
+            if(double_jump_unlock){
+                double_jump = true;
+            }
+        }
+        if(other.gameObject.tag == double_jump_unlock_tag){
+            double_jump_unlock = true;
+            
+            double_jump = true;
+            Destroy(other.gameObject);
+            
         }
     }
     private void OnCollisionExit2D(Collision2D other) {
