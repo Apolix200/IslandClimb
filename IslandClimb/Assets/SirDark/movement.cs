@@ -17,6 +17,8 @@ public class movement : MonoBehaviour
 
     public string groundtag = "Ground";
     public string walltag = "Wall";
+    
+    private GameObject lastWall = null;
 
     
 
@@ -34,11 +36,13 @@ public class movement : MonoBehaviour
 
             }
             else if(onWall){
-                body.velocity = new Vector2(1,1)* jumpSpeed;
+                body.velocity = new Vector2(0,1)* jumpSpeed;
+                onWall = false;
             }
 
         }
-        Debug.Log(isGrounded);
+        Debug.Log(onWall);
+        
     }
     void FixedUpdate()
     {
@@ -50,9 +54,11 @@ public class movement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == groundtag){
             isGrounded = true;
+            lastWall = null;
         }
-        if(other.gameObject.tag == walltag){
+        if(other.gameObject.tag == walltag && other.gameObject != lastWall){
             onWall = true;
+            lastWall = other.gameObject;
         }
     }
     private void OnCollisionExit2D(Collision2D other) {
