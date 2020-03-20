@@ -343,7 +343,7 @@ PrefabInstance:
     - target: {fileID: 6586151005419882930, guid: ba7c94fb6b237c14f9e06c8bb5549063,
         type: 3}
       propertyPath: m_TagString
-      value: Finish
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7c94fb6b237c14f9e06c8bb5549063, type: 3}
@@ -414,6 +414,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6586151005419882930, guid: ba7c94fb6b237c14f9e06c8bb5549063,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7c94fb6b237c14f9e06c8bb5549063, type: 3}
 --- !u!1001 &1524963354
@@ -482,6 +487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tile (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586151005419882930, guid: ba7c94fb6b237c14f9e06c8bb5549063,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba7c94fb6b237c14f9e06c8bb5549063, type: 3}
