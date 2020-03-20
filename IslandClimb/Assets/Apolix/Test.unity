@@ -581,7 +581,7 @@ PrefabInstance:
     - target: {fileID: 4710262603139518649, guid: 2a83fb73aa12a814d9485c31ceff6962,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.01
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 4710262603139518649, guid: 2a83fb73aa12a814d9485c31ceff6962,
         type: 3}
@@ -631,12 +631,27 @@ PrefabInstance:
     - target: {fileID: 7844651005456081051, guid: 2a83fb73aa12a814d9485c31ceff6962,
         type: 3}
       propertyPath: m_Distance
-      value: 2.0107107
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 7844651005456081051, guid: 2a83fb73aa12a814d9485c31ceff6962,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 0.11345878
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844651005456081051, guid: 2a83fb73aa12a814d9485c31ceff6962,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844651005456081051, guid: 2a83fb73aa12a814d9485c31ceff6962,
+        type: 3}
+      propertyPath: m_AutoConfigureDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7844651005456081051, guid: 2a83fb73aa12a814d9485c31ceff6962,
+        type: 3}
+      propertyPath: m_MaxDistanceOnly
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8404625001358086816, guid: 2a83fb73aa12a814d9485c31ceff6962,
         type: 3}

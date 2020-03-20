@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1889925288262650466}
   - component: {fileID: 7844651005456081051}
   - component: {fileID: 6715310139939139846}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!232 &7844651005456081051
 DistanceJoint2D:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 1
+  m_Distance: 2
   m_MaxDistanceOnly: 0
 --- !u!114 &6715310139939139846
 MonoBehaviour:
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61eb31e57f100724f89335b55cb7a8f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 10
+  distance: 20
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
