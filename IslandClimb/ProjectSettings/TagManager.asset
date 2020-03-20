@@ -17,8 +17,8 @@ TagManager:
   - UI
   - 
   - 
-  - Tile
-  - Rope
+  - catchable
+  - 
   - 
   - 
   - 
@@ -42,18 +42,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-<<<<<<< HEAD
   - name: Default
     uniqueID: 0
     locked: 0
-=======
-  - name: Background
-    uniqueID: 2786524215
-    locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
-  - name: Foreground
-    uniqueID: 2060994349
-    locked: 0
->>>>>>> c1d908ed3d421f26ba9f1fd7a6810ee6571cfed6

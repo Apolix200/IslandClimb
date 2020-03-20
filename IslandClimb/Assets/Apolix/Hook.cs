@@ -36,10 +36,10 @@ public class Hook : MonoBehaviour
             {
                 enableScipts(false);
                 joint.enabled = true;
-                joint.connectedAnchor = (hit.point / 10.0f) - new Vector2(hit.collider.transform.position.x / 10.0f, hit.collider.transform.position.y / 10.0f);
+                joint.connectedAnchor = (hit.point ) - new Vector2(hit.collider.transform.position.x , hit.collider.transform.position.y );
                 joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
                 joint.distance = Vector2.Distance(transform.position, hit.point);
-
+                
                 line.enabled = true;
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, hit.point);
