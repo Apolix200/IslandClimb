@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
+    MonoBehaviour[] scripts;
     DistanceJoint2D joint;
+    GameObject movementScript;
     Vector3 targetPos;
     RaycastHit2D hit;
 
@@ -13,6 +15,8 @@ public class Hook : MonoBehaviour
 
     void Start()
     {
+        scripts = gameObject.GetComponents<MonoBehaviour>();
+
         joint = GetComponent<DistanceJoint2D> ();
         joint.enabled = false;
     }
@@ -28,6 +32,7 @@ public class Hook : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
             {
+                enableScipts(false);
                 joint.enabled = true;
                 joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
                 joint.distance = Vector2.Distance(transform.position, hit.point);
@@ -36,7 +41,19 @@ public class Hook : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.E))
         {
+            enableScipts(true);
             joint.enabled = false;
+        }
+    }
+
+    void enableScipts(bool state)
+    {
+        foreach (MonoBehaviour script in scripts)
+        {
+            if(script != this)
+            {
+                script.enabled = state;
+            }      
         }
     }
 }
