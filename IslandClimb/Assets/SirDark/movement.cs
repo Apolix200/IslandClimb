@@ -16,6 +16,7 @@ public class movement : MonoBehaviour
     
     private bool onWall= false;
 
+    public GameObject jumpParticle;
     public string groundtag = "Ground";
     public string walltag = "Wall";
     
@@ -62,6 +63,7 @@ public class movement : MonoBehaviour
                 
             }
             else if(double_jump){
+                Instantiate(jumpParticle, new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), Quaternion.identity);
                 body.velocity = new Vector2(0,1)* jumpSpeed;
                 double_jump = false;
             }
