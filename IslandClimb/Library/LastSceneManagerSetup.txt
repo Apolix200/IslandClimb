@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Apolix/Test.unity
+- path: Assets/Sirdark/Test.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
