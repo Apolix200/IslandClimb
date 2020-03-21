@@ -13,19 +13,26 @@ public class movement : MonoBehaviour
 
     private float moveInput = 0f;
 
-    private bool isGrounded = true;
+    
     private bool onWall= false;
 
     public string groundtag = "Ground";
     public string walltag = "Wall";
     
-    private GameObject lastWall = null;
+    //private GameObject lastWall = null;
 
     public string double_jump_unlock_tag = "double jump unlock";
     bool double_jump_unlock = false;
     bool double_jump = false;
 
-    
+    private bool isGrounded = true;
+    public Transform leftSide;
+    public float checkRadius;
+    public LayerMask whatIsWall;
+    public Transform rightSide;
+
+    bool onLeftWall = false;
+    bool onRightWall = false;
 
     void Start()
     {
@@ -34,14 +41,25 @@ public class movement : MonoBehaviour
     }
 
     void Update() {
+
+        onLeftWall = Physics2D.OverlapCircle(leftSide.position, checkRadius, whatIsWall);
+        onRightWall = Physics2D.OverlapCircle(rightSide.position, checkRadius, whatIsWall);
+        onWall = onLeftWall || onRightWall;
+
         if(Input.GetKeyDown(KeyCode.Space) && (isGrounded || onWall || double_jump)){
             
             if(isGrounded){
                 body.velocity = new Vector2(0,1)* jumpSpeed;    
             }
             else if(onWall){
-                body.velocity = new Vector2(0,1)* jumpSpeed;
-                onWall = false;
+                if(onLeftWall){
+                     body.velocity = new Vector2(1,1)* jumpSpeed;
+                }
+                if(onRightWall){
+                     body.velocity = new Vector2(-1,1)* jumpSpeed;
+                }
+                   
+                
             }
             else if(double_jump){
                 body.velocity = new Vector2(0,1)* jumpSpeed;
@@ -49,38 +67,54 @@ public class movement : MonoBehaviour
             }
         }
 
+        
         animator.SetFloat("jump", Mathf.Abs(body.velocity.y));
         animator.SetFloat("speed", Mathf.Abs(body.velocity.x));
+        
     }
     void FixedUpdate()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
 
+        if(onLeftWall){
+            if(moveInput < 0){
+                moveInput = 0;
+            }
+        }
+        if(onRightWall){
+            if(moveInput > 0){
+                moveInput = 0;
+            }
+        }
+        //Debug.Log("RightWall " + onRightWall + " "+ moveInput);
+        //Debug.Log("LeftWall " + onLeftWall+" "+ moveInput);
+        Debug.Log(moveInput);
         body.velocity = new Vector2(moveInput*speed, body.velocity.y);
 
         Vector3 characterScale = transform.localScale;
 
+
+
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             characterScale.x = -2;
+            Transform c = rightSide;
+            rightSide = leftSide;
+            leftSide = c;
         }
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             characterScale.x = 2;
+            Transform c = rightSide;
+            rightSide = leftSide;
+            leftSide = c;
         }
         transform.localScale = characterScale;
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == groundtag){
             isGrounded = true;
-            lastWall = null;
-            if(double_jump_unlock){
-                double_jump = true;
-            }
-        }
-        if(other.gameObject.tag == walltag && other.gameObject != lastWall){
-            onWall = true;
-            lastWall = other.gameObject;
+            //lastWall = null;
             if(double_jump_unlock){
                 double_jump = true;
             }
