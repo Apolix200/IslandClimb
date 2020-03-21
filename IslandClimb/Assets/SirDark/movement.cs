@@ -5,6 +5,7 @@ using System.Collections;
 public class movement : MonoBehaviour
 {
     Rigidbody2D body;
+    Animator animator;
 
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
@@ -29,15 +30,14 @@ public class movement : MonoBehaviour
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update() {
         if(Input.GetKeyDown(KeyCode.Space) && (isGrounded || onWall || double_jump)){
             
             if(isGrounded){
-                body.velocity = new Vector2(0,1)* jumpSpeed;
-                
-
+                body.velocity = new Vector2(0,1)* jumpSpeed;    
             }
             else if(onWall){
                 body.velocity = new Vector2(0,1)* jumpSpeed;
@@ -47,12 +47,10 @@ public class movement : MonoBehaviour
                 body.velocity = new Vector2(0,1)* jumpSpeed;
                 double_jump = false;
             }
-            
-
         }
-        Debug.Log(isGrounded);
 
-        
+        animator.SetFloat("jump", Mathf.Abs(body.velocity.y));
+        animator.SetFloat("speed", Mathf.Abs(body.velocity.x));
     }
     void FixedUpdate()
     {
@@ -60,6 +58,17 @@ public class movement : MonoBehaviour
 
         body.velocity = new Vector2(moveInput*speed, body.velocity.y);
 
+        Vector3 characterScale = transform.localScale;
+
+        if (Input.GetAxisRaw("Horizontal") < 0)
+        {
+            characterScale.x = -2;
+        }
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            characterScale.x = 2;
+        }
+        transform.localScale = characterScale;
     }
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == groundtag){
