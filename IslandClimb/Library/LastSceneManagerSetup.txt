@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Sirdark/Test.unity
+- path: Assets/SirDark/menu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
