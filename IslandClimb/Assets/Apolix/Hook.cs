@@ -13,6 +13,8 @@ public class Hook : MonoBehaviour
 
     public float distance = 10f;
     public LayerMask mask;
+    public float xOffset = 0.05f;
+    public float yOffset = 0.1f;
 
     void Start()
     {
@@ -25,7 +27,7 @@ public class Hook : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown (KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPos.z = 0;
@@ -41,14 +43,14 @@ public class Hook : MonoBehaviour
                 joint.distance = Vector2.Distance(transform.position, hit.point);
                 
                 line.enabled = true;
-                line.SetPosition(0, transform.position);
+                line.SetPosition(0, transform.position + new Vector3(xOffset,yOffset,0));
                 line.SetPosition(1, hit.point);
             }
         }
 
-        if(Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
-            line.SetPosition(0, transform.position);
+            line.SetPosition(0, transform.position + new Vector3(xOffset, yOffset, 0));
         }
 
         if (Input.GetKeyUp(KeyCode.E))
