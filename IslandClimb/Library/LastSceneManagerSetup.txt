@@ -1,5 +1,13 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/SirDark/menu.unity
+=======
+<<<<<<< HEAD
+- path: Assets/Apolix/Test 1.unity
+=======
+- path: Assets/SirDark/Test.unity
+>>>>>>> 7b48a227cd1ec637f784c65a83e612f286e480c8
+>>>>>>> 757c119c3d35a53c4ad4f8e1705df1c64e7f9c13
   isLoaded: 1
   isActive: 1
   isSubScene: 0
