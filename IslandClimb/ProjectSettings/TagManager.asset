@@ -13,6 +13,7 @@ TagManager:
   - dash_unlock
   - CheckPoint
   - Cave
+  - finish_unlock
   layers:
   - Default
   - TransparentFX

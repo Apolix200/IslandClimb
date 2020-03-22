@@ -47,5 +47,18 @@ public class Dialogue : MonoBehaviour
         {
             Say(1);
         }
+        if (other.gameObject.tag == "hook_unlock")
+        {
+            Say(2);
+        }
+        if (other.gameObject.tag == "dash_unlock")
+        {
+            Say(3);
+        }
+        if(other.gameObject.tag == "finish_unlock")
+        {
+            Say(4);
+            Destroy(other.gameObject);
+        }
     }
 }

@@ -7,6 +7,8 @@ public class death : MonoBehaviour
     private Vector3 rp = new Vector3(0f,-3.4f,0f);
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Spike"){
+            gameObject.GetComponent<DistanceJoint2D>().enabled = false;
+            gameObject.GetComponent<LineRenderer>().enabled = false;
             gameObject.transform.position = rp;
         }   
         if(other.gameObject.tag == "CheckPoint"){
