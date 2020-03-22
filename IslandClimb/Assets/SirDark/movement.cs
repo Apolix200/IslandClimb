@@ -78,7 +78,7 @@ public class movement : MonoBehaviour
     {
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        if(onLeftWall){
+        /*if(onLeftWall){
             if(moveInput < 0){
                 moveInput = 0;
             }
@@ -87,7 +87,7 @@ public class movement : MonoBehaviour
             if(moveInput > 0){
                 moveInput = 0;
             }
-        }
+        }*/
         //Debug.Log("RightWall " + onRightWall + " "+ moveInput);
         //Debug.Log("LeftWall " + onLeftWall+" "+ moveInput);
         Debug.Log(moveInput);
