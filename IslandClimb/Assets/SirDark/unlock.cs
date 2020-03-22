@@ -13,7 +13,7 @@ public class unlock : MonoBehaviour
         if(other.gameObject.tag == "hook_unlock"){
             gameObject.GetComponent<Hook>().enabled = true;
             gameObject.GetComponent<Hook>().distance = 4f;
-            gameObject.GetComponent<DistanceJoint2D>().enabled = true;
+            gameObject.GetComponent<DistanceJoint2D>().enabled = false;
             Destroy(other.gameObject);
         }
         if(other.gameObject.tag == "dash_unlock"){
