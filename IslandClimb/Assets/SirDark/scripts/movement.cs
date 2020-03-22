@@ -35,6 +35,8 @@ public class movement : MonoBehaviour
     bool onLeftWall = false;
     bool onRightWall = false;
 
+    
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -45,7 +47,7 @@ public class movement : MonoBehaviour
 
         onLeftWall = Physics2D.OverlapCircle(leftSide.position, checkRadius, whatIsWall);
         onRightWall = Physics2D.OverlapCircle(rightSide.position, checkRadius, whatIsWall);
-        
+
         onWall = onLeftWall || onRightWall;
         if(onWall && double_jump_unlock){
             double_jump = true;

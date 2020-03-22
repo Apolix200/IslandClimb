@@ -11,6 +11,8 @@ TagManager:
   - Spike
   - hook_unlock
   - dash_unlock
+  - CheckPoint
+  - Cave
   layers:
   - Default
   - TransparentFX
