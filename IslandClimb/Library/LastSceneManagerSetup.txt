@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Sirdark/Test 1.unity
+=======
+- path: Assets/SirDark/Test 1.unity
+>>>>>>> b072a197263e9f60d4654ed730b7d105a7c312d7
   isLoaded: 1
   isActive: 1
   isSubScene: 0
