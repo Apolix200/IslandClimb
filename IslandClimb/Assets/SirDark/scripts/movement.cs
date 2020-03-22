@@ -96,7 +96,6 @@ public class movement : MonoBehaviour
         }*/
         //Debug.Log("RightWall " + onRightWall + " "+ moveInput);
         //Debug.Log("LeftWall " + onLeftWall+" "+ moveInput);
-        Debug.Log(moveInput);
         body.velocity = new Vector2(moveInput*speed, body.velocity.y);
 
         Vector3 characterScale = transform.localScale;
