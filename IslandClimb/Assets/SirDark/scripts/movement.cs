@@ -45,7 +45,11 @@ public class movement : MonoBehaviour
 
         onLeftWall = Physics2D.OverlapCircle(leftSide.position, checkRadius, whatIsWall);
         onRightWall = Physics2D.OverlapCircle(rightSide.position, checkRadius, whatIsWall);
+        
         onWall = onLeftWall || onRightWall;
+        if(onWall && double_jump_unlock){
+            double_jump = true;
+        }
 
         if(Input.GetKeyDown(KeyCode.Space) && (isGrounded || onWall || double_jump)){
             
