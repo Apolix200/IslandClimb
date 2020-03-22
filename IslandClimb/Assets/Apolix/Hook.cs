@@ -36,6 +36,10 @@ public class Hook : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
             {
+                if(gameObject.GetComponent<Dash>() != null)
+                {
+                    gameObject.GetComponent<Dash>().setCanDash(true);
+                }        
                 enableScipts(false);
                 joint.enabled = true;
                 joint.connectedAnchor = (hit.point ) - new Vector2(hit.collider.transform.position.x , hit.collider.transform.position.y );

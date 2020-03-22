@@ -92,4 +92,9 @@ public class Dash : MonoBehaviour
             }
         }
     }
+
+    public void setCanDash(bool state)
+    {
+        canDash = state;
+    }
 }
