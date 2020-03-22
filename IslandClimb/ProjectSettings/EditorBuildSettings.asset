@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SirDark/menu.unity
+    path: Assets/Sirdark/menu.unity
     guid: 37ca395298d6fe84bb0a00870310533c
   - enabled: 1
-    path: Assets/SirDark/Test.unity
-    guid: 22956b6e93b9f6b429128a2f8435c252
+    path: Assets/Sirdark/Test.unity
+    guid: 2c67cdcd98221464bb4980fe185e6987
   m_configObjects: {}

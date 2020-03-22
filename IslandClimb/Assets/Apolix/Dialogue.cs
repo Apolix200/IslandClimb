@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Dialogue : MonoBehaviour
 {
+    public GameObject endText;
     [TextArea(5, 20)]
     public string[] dialogue;
     public GameObject bubble;
@@ -12,6 +13,7 @@ public class Dialogue : MonoBehaviour
     public float aliveTime = 5f;
 
     private float timer;
+    private bool end = false;
 
     void Start()
     {
@@ -29,6 +31,10 @@ public class Dialogue : MonoBehaviour
         if (timer <= 0)
         {
             bubble.SetActive(false);
+            if (end)
+            {
+                endText.SetActive(true);
+            }  
         }
     }
 
@@ -59,6 +65,7 @@ public class Dialogue : MonoBehaviour
         {
             Say(4);
             Destroy(other.gameObject);
+            end = true;
         }
     }
 }

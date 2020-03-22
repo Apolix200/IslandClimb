@@ -5,7 +5,6 @@ using UnityEditor;
 
 public class unlock : MonoBehaviour
 {
-    public GameObject endText;
 
     private void Start() {
         gameObject.GetComponent<DistanceJoint2D>().enabled = false;
@@ -25,7 +24,7 @@ public class unlock : MonoBehaviour
             gameObject.AddComponent<Dash>();
             gameObject.GetComponent<Dash>().dashParticle = (GameObject)Resources.Load("DashEffect");
             gameObject.GetComponent<Dash>().startDashTime = 0.1f;
-            //gameObject.GetComponent<Dash>().dashParticle = (GameObject)GameObject.Instantiate(), Vector3.zero, Quaternion.identity);
+           // gameObject.GetComponent<Dash>().dashParticle = (GameObject)GameObject.Instantiate(), Vector3.zero, Quaternion.identity);
             //gameObject.GetComponent<Dash>().dashParticle =   (AssetDatabase.FindAssets("DashEffect"))[0];
             Destroy(other.gameObject);
         }
@@ -33,9 +32,12 @@ public class unlock : MonoBehaviour
         {
             gameObject.GetComponent<movement>().enabled = false;
             gameObject.GetComponent<Hook>().enabled = false;
-            gameObject.GetComponent<Dash>().enabled = false;
-            gameObject.GetComponent<Animator>().SetFloat("jump", Mathf.Abs(0));
-            endText.SetActive(true);
+            if(gameObject.GetComponent<Dash>() != null)
+            {
+                gameObject.GetComponent<Dash>().enabled = false;
+            }
+            gameObject.GetComponent<Animator>().SetFloat("jump", 0);
+            gameObject.GetComponent<Animator>().SetFloat("speed", 0);
 
         }
     }
