@@ -43,14 +43,14 @@ public class Hook : MonoBehaviour
                 joint.distance = Vector2.Distance(transform.position, hit.point);
                 
                 line.enabled = true;
-                line.SetPosition(0, transform.position + new Vector3(xOffset,yOffset,0));
-                line.SetPosition(1, hit.point);
+                line.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 0) + new Vector3(xOffset,yOffset,0));
+                line.SetPosition(1, new Vector3(hit.point.x, hit.point.y, 0));
             }
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            line.SetPosition(0, transform.position + new Vector3(xOffset, yOffset, 0));
+            line.SetPosition(0, new Vector3(transform.position.x, transform.position.y, 0) + new Vector3(xOffset, yOffset, 0));
         }
 
         if (Input.GetKeyUp(KeyCode.E))
