@@ -9,6 +9,8 @@ TagManager:
   - double jump unlock
   - Bottom
   - Spike
+  - hook_unlock
+  - dash_unlock
   layers:
   - Default
   - TransparentFX
